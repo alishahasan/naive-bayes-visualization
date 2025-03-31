@@ -1,0 +1,61 @@
+.custom-data-table {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.custom-data-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-data-table th {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  font-weight: bold;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.custom-data-table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+}
+
+.custom-data-table .row-header-cell {
+  position: sticky;
+  left: 0;
+  background-color: #f8f9fa;
+  font-weight: bold;
+  z-index: 2;
+}
+
+/* For empty state */
+.custom-data-table .no-data {
+  padding: 20px;
+  text-align: center;
+  color: #6c757d;
+}
+
+/* Highlighting styles */
+.custom-data-table .highlighted-cell {
+  background-color: rgba(255, 220, 102, 0.5) !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* More prominent highlighting for cells in the same column & class */
+.custom-data-table td.highlighted-column-class {
+  background-color: rgba(255, 220, 102, 0.7) !important;
+  position: relative;
+  z-index: 2;
+}
+
+.custom-data-table tr:hover td {
+  background-color: rgba(0, 123, 255, 0.05);
+}

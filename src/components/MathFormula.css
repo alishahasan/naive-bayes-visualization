@@ -1,0 +1,210 @@
+.interactive-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.interactive-container h3 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.interactive-container h4 {
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.interactive-container h5 {
+  color: #666;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 0.95em;
+}
+
+/* Main layout */
+.interactive-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 20px 0;
+}
+
+.data-matrix-container,
+.probability-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Data matrix styling */
+.data-table {
+  overflow-x: auto;
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.data-table table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: 'CMU Serif', Georgia, 'Times New Roman', serif;
+}
+
+.data-table th {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  font-weight: bold;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.data-table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.data-table .row-header-cell {
+  position: sticky;
+  left: 0;
+  background-color: #f8f9fa;
+  font-weight: bold;
+  z-index: 2;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.class-positive {
+  color: #28a745;
+}
+
+.class-negative {
+  color: #dc3545;
+}
+
+.class-unknown {
+  color: #6c757d;
+}
+
+/* Highlighting */
+.highlighted-row {
+  background-color: rgba(255, 248, 219, 0.7) !important;
+}
+
+.highlighted-row td {
+  background-color: rgba(255, 248, 219, 0.7) !important;
+}
+
+.highlighted-row td:first-child {
+  background-color: rgba(255, 248, 219, 0.85) !important;
+}
+
+.highlighted-cell {
+  background-color: rgba(255, 220, 102, 0.5) !important;
+}
+
+/* Formula styling */
+.probability-list {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.probability-item {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  position: relative;
+  cursor: help;
+  transition: background-color 0.2s;
+}
+
+.probability-item:hover {
+  background-color: rgba(0, 123, 255, 0.08);
+}
+
+.formula {
+  display: flex;
+  align-items: center;
+  font-family: 'CMU Serif', Georgia, 'Times New Roman', serif;
+}
+
+.formula-text {
+  margin-right: 8px;
+}
+
+.formula-equals {
+  margin: 0 8px;
+}
+
+.formula-result {
+  font-weight: bold;
+}
+
+.highlighted-formula {
+  background-color: rgba(255, 248, 219, 0.8);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltips */
+.formula-tooltip {
+  visibility: hidden;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 100;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.formula-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.probability-item:hover .formula-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Instruction text */
+.instruction {
+  text-align: center;
+  color: #666;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .interactive-layout {
+    flex-direction: column;
+  }
+}

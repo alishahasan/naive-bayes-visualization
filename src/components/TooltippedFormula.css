@@ -1,0 +1,155 @@
+/* Clean styling for formula with individual tooltips */
+.math-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  .math-container h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  .math-container h4 {
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .math-container p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+  
+  /* Formula container with flexbox layout */
+  .formula-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    font-size: 24px;
+    font-family: 'CMU Serif', Georgia, 'Times New Roman', serif; /* LaTeX-like font */
+    font-style: normal; /* Remove default italics */
+    letter-spacing: 0.5px; /* Better spacing between characters */
+  }
+  
+  /* Individual formula parts that have tooltips */
+  .formula-part {
+    position: relative;
+    cursor: help;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .formula-part:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+  }
+  
+  /* Styling for the tooltips */
+  .tooltip-box {
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 100;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Reset to normal font for tooltips */
+  }
+  
+  /* Arrow pointing down from tooltip */
+  .tooltip-box::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+  }
+  
+  /* Show tooltip on hover */
+  .formula-part:hover .tooltip-box {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Tooltip title */
+  .tooltip-box span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  
+  /* Tooltip description */
+  .tooltip-box p {
+    margin: 0;
+    font-size: 13px;
+  }
+  
+  /* Equals sign between parts */
+  .formula-equals {
+    margin: 0 12px;
+  }
+  
+  /* Fraction structure */
+  .formula-fraction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .formula-numerator {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  /* LaTeX-style fraction bar */
+  .formula-bar {
+    height: 1px; /* Thinner line for more LaTeX feel */
+    background-color: black;
+    width: 100%;
+    min-width: 120px;
+  }
+  
+  .formula-denominator {
+    margin-top: 5px;
+  }
+  
+  .formula-dot {
+    margin: 0 5px;
+  }
+  
+  /* Instruction text */
+  .formula-instruction {
+    text-align: center;
+    color: #666;
+    margin-top: 0;
+    font-size: 14px;
+  }
+  
+  /* Styling for the formula display elements */
+  .formula-display {
+    font-family: 'CMU Serif', Georgia, 'Times New Roman', serif;
+    font-weight: normal;
+  }
