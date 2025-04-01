@@ -104,15 +104,6 @@ Components use a combination of Tailwind CSS and custom CSS files:
 1. For layout changes, modify the Tailwind classes in component files
 2. For component-specific styling, update the corresponding CSS files
 
-## Running Tests
-
-```bash
-# Run unit tests
-npm test
-
-# Run specific test file
-npm test -- App.test.js
-```
 
 ## Future Development
 
@@ -120,7 +111,3 @@ npm test -- App.test.js
 - Real-time classification of new text inputs
 - Step-by-step visualization of the classification process
 - Support for multi-class classification
-
-## License
-
-MIT
