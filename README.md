@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# Naive Bayes Classifier Visualization
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based interactive visualization tool for demonstrating Naive Bayes classification algorithms.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+This project implements an interactive UI for visualizing the components of a Naive Bayes classifier, including feature matrices, prior probabilities, and conditional probabilities. The primary goal is to create an educational tool that helps developers understand how Naive Bayes works through visual interaction.
 
-### `npm start`
+## Technical Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: Front-end framework for component-based UI
+- **Tailwind CSS**: Utility-first CSS framework for styling
+- **useState Hook**: For managing component state and interactions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Component Structure
 
-### `npm test`
+The main component (`NaiveBayesComponent`) consists of:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **State Management**
+   - `hoveredFeatureIndex`: Tracks which feature column is being hovered
+   
+2. **Data Structures**
+   - `featureNames`: Array of feature labels
+   - `dataMatrix`: 2D matrix representing feature presence in classified texts
+   - `priors`: Object containing prior probabilities for each class
 
-### `npm run build`
+3. **Helper Functions**
+   - `calculateConditionalProb()`: Dynamically calculates conditional probabilities
+   - `handleProbabilityHover()`: Manages hover state for interactive highlighting
+   - `handleMouseLeave()`: Resets hover state
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Key Features for Developers
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Dynamic Probability Calculation**: All probabilities are calculated at runtime based on the data matrix
+- **Interactive Element Highlighting**: Uses state to coordinate highlighting between different UI elements
+- **Responsive Layout**: Adapts to different screen sizes using Tailwind's responsive classes
+- **Tooltip Implementation**: Custom tooltip system for displaying additional context
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Implementation Details
 
-### `npm run eject`
+### Highlighting Logic
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The cell highlighting is implemented using conditional class application:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+  className={`border p-2 text-center ${
+    hoveredFeatureIndex === colIndex && 
+    row.classification === 'Positive' && 
+    value === 1 ? 'bg-yellow-200' : ''
+  }`}
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This highlights cells when:
+1. The current column matches the hovered probability
+2. The row is a positive classification
+3. The feature value is 1 (present)
 
-## Learn More
+### Probability Calculation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Conditional probabilities are calculated on the go:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+const calculateConditionalProb = (featureIndex, value, classification) => {
+  const classRows = dataMatrix.filter(row => row.classification === classification);
+  const matchingRows = classRows.filter(row => row.features[featureIndex] === value);
+  
+  return classRows.length > 0 ? (matchingRows.length / classRows.length) * 100 : 0;
+};
+```
 
-### Code Splitting
+## Development Setup
+### Prerequisites
+- Node.js (v14+)
+- npm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Installation
+```
+# Clone the repository
+git clone https://github.com/yourusername/naive-bayes-visualization.git
+cd naive-bayes-visualization
 
-### Analyzing the Bundle Size
+# Install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Start development server
+npm start
+```
 
-### Making a Progressive Web App
+### Project Structure
+```
+src/
+├── components/
+│   └── NaiveBayesComponent.jsx  # Main visualization component
+├── App.js                       # Root component
+└── index.js                     # Entry point
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Customization Guide
+### Modifying the Dataset
+To use a different dataset, update the `dataMatrix` and `featureNames` arrays:
+```
+// Feature names (columns in the matrix)
+const featureNames = ['and', 'funny', 'he', 'movie', 'not', 'sad', 'was'];
 
-### Advanced Configuration
+// Matrix rows representing documents with feature presence (1) or absence (0)
+const dataMatrix = [
+  { classification: 'Positive', features: [1, 1, 1, 0, 0, 1, 1] },
+  { classification: 'Positive', features: [0, 0, 0, 1, 0, 1, 1] },
+  { classification: 'Negative', features: [0, 1, 0, 1, 1, 0, 1] }
+];
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Styling Modifications
+The component uses Tailwind CSS classes for styling. To modify the appearance:
+1. Edit the `className` props in the component
+2. For custom styles beyond Tailwind, create a separate CSS file
