@@ -111,3 +111,35 @@ Components use a combination of Tailwind CSS and custom CSS files:
 - Real-time classification of new text inputs
 - Step-by-step visualization of the classification process
 - Support for multi-class classification
+
+## Challenges and Developer Notes
+
+### Known Challenges
+
+1. **State Management Complexity**:
+   - Hovering interactions between components rely on state being passed correctly
+   - The current implementation uses prop drilling
+   - Be cautious when refactoring the hover state logic as it affects multiple components
+
+3. **Responsive Design Edge Cases**:
+   - The matrix visualization may have display issues on very small screens (<320px width)
+   - Formula display can break at certain viewport widths due to MathJax rendering behavior
+   - Test thoroughly when making layout changes
+
+### Developer Tips
+
+1. **Adding New Features**:
+   - When adding new interactive elements, maintain the existing pattern of state management
+   - Always consider both hover states and tooltip behaviors when modifying components
+   - The TooltippedFormula component is designed to be reused across the application
+
+2. **Performance Optimization**:
+   - Large datasets could impact rendering performance; could consider pagination for matrices with many rows
+   - Use React.memo() for components that don't need frequent re-rendering
+   - The calculateConditionalProb function is called frequently; consider optimizing/memoizing its results
+
+3. **CSS Modifications**:
+   - Most component styling uses a combination of Tailwind utility classes and component-specific CSS
+   - Changes to global styles in index.css may have unintended results across the different components, since they're intertwined
+   - Note that BayesExplanationTransition.css contains critical animation properties that affect UX
+
