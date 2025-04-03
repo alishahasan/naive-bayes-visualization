@@ -11,10 +11,10 @@ The visualization focuses on a simplified sentiment analysis task: classifying m
 ### Assumptions
 The visualization makes several key assumptions to simplify the learning experience:
 
-**Balanced Dataset Example**: The visualization uses a small, manually balanced sample dataset to demonstrate concepts clearly, rather than a large, potentially imbalanced real-world corpus.
-**Pre-selected Features**: The words/features shown are pre-selected for their predictive power rather than using automated feature selection techniques.
-**No Smoothing Visualization**: The basic visualization doesn't explicitly show Laplace smoothing or other techniques used in production Naive Bayes models to handle zero probabilities.
-**Binary Classification**: The model only distinguishes between positive and negative sentiment, rather than handling multiple classes.
+- **Balanced Dataset Example**: The visualization uses a small, manually balanced sample dataset to demonstrate concepts clearly, rather than a large, potentially imbalanced real-world corpus.
+- **Pre-selected Features**: The words/features shown are pre-selected for their predictive power rather than using automated feature selection techniques.
+- **No Smoothing Visualization**: The basic visualization doesn't explicitly show Laplace smoothing or other techniques used in production Naive Bayes models to handle zero probabilities.
+- **Binary Classification**: The model only distinguishes between positive and negative sentiment, rather than handling multiple classes.
 Educational Focus: Emphasis is placed on clarity of the underlying concepts rather than computational efficiency or classification accuracy.
 
 ## Learning Objectives
