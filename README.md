@@ -2,9 +2,20 @@
 
 A React-based educational tool that visualizes how Naive Bayes classification works through an interactive interface.
 
-## Overview
+## Introduction
 
-This project provides an intuitive visualization of Naive Bayes classifiers, commonly used for text classification. It displays feature matrices, probabilities, and demonstrates the relationships between data points and classification outcomes through interactive elements.
+This project serves as an educational visualization of the Naive Bayes algorithm applied to text classification, specifically focused on sentiment analysis of movie reviews. The tool demonstrates how the algorithm uses word frequencies to classify text as positive or negative.
+
+The visualization focuses on a simplified sentiment analysis task: classifying movie reviews as positive or negative based on the presence or absence of specific words (features). For example, the presence of words like "funny" might indicate a positive review, while words like "boring" might indicate a negative one.
+
+### Assumptions
+The visualization makes several key assumptions to simplify the learning experience:
+
+**Balanced Dataset Example**: The visualization uses a small, manually balanced sample dataset to demonstrate concepts clearly, rather than a large, potentially imbalanced real-world corpus.
+**Pre-selected Features**: The words/features shown are pre-selected for their predictive power rather than using automated feature selection techniques.
+**No Smoothing Visualization**: The basic visualization doesn't explicitly show Laplace smoothing or other techniques used in production Naive Bayes models to handle zero probabilities.
+**Binary Classification**: The model only distinguishes between positive and negative sentiment, rather than handling multiple classes.
+Educational Focus: Emphasis is placed on clarity of the underlying concepts rather than computational efficiency or classification accuracy.
 
 ## Technical Stack
 
