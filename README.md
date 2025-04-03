@@ -17,6 +17,13 @@ The visualization makes several key assumptions to simplify the learning experie
 **Binary Classification**: The model only distinguishes between positive and negative sentiment, rather than handling multiple classes.
 Educational Focus: Emphasis is placed on clarity of the underlying concepts rather than computational efficiency or classification accuracy.
 
+## Learning Objectives
+
+- Understand the core components of Naive Bayes classification
+- Visualize how word presence affects classification outcomes
+- Learn how prior and conditional probabilities interact
+- Experience the "naive" conditional independence assumption in practice
+
 ## Technical Stack
 
 - **React**: Frontend framework
